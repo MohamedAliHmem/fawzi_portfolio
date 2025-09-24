@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as cookie from "cookie";
 
+export const dynamic = "force-static";
+
 export async function POST(request: NextRequest) {
   const body = await request.json();
   const { password } = body;
