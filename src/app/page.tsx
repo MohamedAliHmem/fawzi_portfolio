@@ -57,7 +57,7 @@ export default function Home() {
                   <Avatar
                     marginRight="8"
                     style={{ marginLeft: "-0.75rem" }}
-                    src={person.avatar}
+                    src={getImagePath(person.avatar)}
                     size="m"
                   />
                 )}

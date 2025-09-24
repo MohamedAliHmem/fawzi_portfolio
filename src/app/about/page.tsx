@@ -90,7 +90,7 @@ export default function About() {
             flex={3}
             horizontal="center"
           >
-            <Avatar src={person.avatar} size="xl" />
+            <Avatar src={getImagePath(person.avatar)} size="xl" />
             <Flex gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
               {person.location}
@@ -236,7 +236,7 @@ export default function About() {
                               //@ts-ignore
                               alt={image.alt}
                               //@ts-ignore
-                              src={image.src}
+                              src={getImagePath(image.src)}
                             />
                           </Flex>
                         ))}
@@ -305,7 +305,7 @@ export default function About() {
                               //@ts-ignore
                               alt={image.alt}
                               //@ts-ignore
-                              src={image.src}
+                              src={getImagePath(image.src)}
                             />
                           </Flex>
                         ))}

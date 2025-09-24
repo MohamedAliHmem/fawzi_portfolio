@@ -50,7 +50,7 @@ export default async function Project({
 
   const avatars =
     post.metadata.team?.map((person) => ({
-      src: person.avatar,
+      src: getImagePath(person.avatar),
     })) || [];
 
   return (
