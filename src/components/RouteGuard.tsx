@@ -10,21 +10,50 @@ interface RouteGuardProps {
 	children: React.ReactNode;
 }
 
+// Client-side authentication using localStorage
+const AUTH_KEY = "portfolio_auth";
+const AUTH_EXPIRY_KEY = "portfolio_auth_expiry";
+
+const isAuthenticated = (): boolean => {
+  if (typeof window === "undefined") return false;
+  
+  const authToken = localStorage.getItem(AUTH_KEY);
+  const expiryTime = localStorage.getItem(AUTH_EXPIRY_KEY);
+  
+  if (!authToken || !expiryTime) return false;
+  
+  if (Date.now() > parseInt(expiryTime)) {
+    localStorage.removeItem(AUTH_KEY);
+    localStorage.removeItem(AUTH_EXPIRY_KEY);
+    return false;
+  }
+  
+  return authToken === "authenticated";
+};
+
+const setAuthentication = (): void => {
+  if (typeof window === "undefined") return;
+  
+  const expiryTime = Date.now() + (60 * 60 * 1000); // 1 hour
+  localStorage.setItem(AUTH_KEY, "authenticated");
+  localStorage.setItem(AUTH_EXPIRY_KEY, expiryTime.toString());
+};
+
 const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
   const pathname = usePathname();
   const [isRouteEnabled, setIsRouteEnabled] = useState(false);
   const [isPasswordRequired, setIsPasswordRequired] = useState(false);
   const [password, setPassword] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false);
   const [error, setError] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const performChecks = async () => {
+    const performChecks = () => {
       setLoading(true);
       setIsRouteEnabled(false);
       setIsPasswordRequired(false);
-      setIsAuthenticated(false);
+      setAuthenticated(false);
 
       const checkRouteEnabled = () => {
         if (!pathname) return false;
@@ -48,11 +77,7 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
 
       if (protectedRoutes[pathname as keyof typeof protectedRoutes]) {
         setIsPasswordRequired(true);
-
-        const response = await fetch("/api/check-auth");
-        if (response.ok) {
-          setIsAuthenticated(true);
-        }
+        setAuthenticated(isAuthenticated());
       }
 
       setLoading(false);
@@ -61,15 +86,14 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
     performChecks();
   }, [pathname]);
 
-  const handlePasswordSubmit = async () => {
-    const response = await fetch("/api/authenticate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password }),
-    });
-
-    if (response.ok) {
-      setIsAuthenticated(true);
+  const handlePasswordSubmit = () => {
+    // You should replace this with your actual password
+    // For security, consider using environment variables or a more secure method
+    const correctPassword = "your-password-here";
+    
+    if (password === correctPassword) {
+      setAuthentication();
+      setAuthenticated(true);
       setError(undefined);
     } else {
       setError("Incorrect password");
@@ -88,7 +112,7 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
 		return <NotFound />;
 	}
 
-  if (isPasswordRequired && !isAuthenticated) {
+  if (isPasswordRequired && !authenticated) {
     return (
       <Column paddingY="128" maxWidth={24} gap="24" center>
         <Heading align="center" wrap="balance">

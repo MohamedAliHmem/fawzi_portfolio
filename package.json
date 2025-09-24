@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "export": "next export",
-    "build": "node scripts/generate-og-images.mjs && next build",
+    "build": "tsx scripts/generate-og-images.tsx && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -30,6 +30,7 @@
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.6",
     "eslint": "^9.25.0",
+    "tsx": "^4.20.5",
     "typescript": "^5.8.3"
   }
 }
