@@ -9,6 +9,7 @@ import {
   SmartLink,
   Text,
 } from "@once-ui-system/core";
+import { getImagePath } from "@/utils/imageUtils";
 
 interface ProjectCardProps {
   href: string;
@@ -35,7 +36,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <Carousel
         sizes="(max-width: 960px) 100vw, 960px"
         items={images.map((image) => ({
-          slide: image,
+          slide: getImagePath(image),
           alt: title,
         }))}
       />

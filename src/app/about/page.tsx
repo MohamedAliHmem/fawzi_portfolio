@@ -14,6 +14,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
+import { getImagePath } from "@/utils/imageUtils";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 

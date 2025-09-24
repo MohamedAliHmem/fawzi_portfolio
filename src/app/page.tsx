@@ -4,6 +4,7 @@ import Image from "next/image";
 import { home, about, person, newsletter, baseURL, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
+import { getImagePath } from "@/utils/imageUtils";
 
 export default function Home() {
   return (
@@ -68,7 +69,7 @@ export default function Home() {
         <RevealFx fillWidth horizontal="end" delay={0.3}>
           <Image
             priority
-            src="/images/astro.jpg"
+            src={getImagePath("/images/astro.jpg")}
             alt="Illustration astronaute"
             width={400}
             height={400}

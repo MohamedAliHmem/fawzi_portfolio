@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getPosts } from "@/utils/utils";
+import { getImagePath } from "@/utils/imageUtils";
 import { Meta, Schema, AvatarGroup, Button, Column, Flex, Heading, Media, Text } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
@@ -81,7 +82,7 @@ export default async function Project({
           aspectRatio="16 / 9"
           radius="m"
           alt="image"
-          src={post.metadata.images[0]}
+          src={getImagePath(post.metadata.images[0])}
         />
       )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">

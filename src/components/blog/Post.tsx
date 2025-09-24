@@ -3,6 +3,7 @@
 import { Column, Flex, Heading, Media, SmartLink, Tag, Text } from '@once-ui-system/core';
 import styles from './Posts.module.scss';
 import { formatDate } from '@/utils/formatDate';
+import { getImagePath } from '@/utils/imageUtils';
 
 interface PostProps {
     post: any;
@@ -34,7 +35,7 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
                         border="neutral-alpha-weak"
                         cursor="interactive"
                         radius="l"
-                        src={post.metadata.image}
+                        src={getImagePath(post.metadata.image)}
                         alt={'Thumbnail of ' + post.metadata.title}
                         aspectRatio="16 / 9"
                     />
