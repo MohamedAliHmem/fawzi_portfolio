@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "next dev",
     "export": "next export",
-    "build": "tsx scripts/generate-og-images.tsx && next build",
+    "build": "next build",
+    "build:og": "tsx scripts/generate-og-images.tsx",
+    "build:full": "npm run build:og && next build",
     "start": "next start",
     "lint": "next lint"
   },
