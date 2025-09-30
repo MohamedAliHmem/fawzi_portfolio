@@ -4,7 +4,6 @@ import { Meta, Schema, AvatarGroup, Button, Column, Heading, HeadingNav, Icon, R
 import { baseURL, about, blog, person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { getPosts } from "@/utils/utils";
-import { getImagePath } from "@/utils/imageUtils";
 import { Metadata } from 'next';
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
@@ -50,7 +49,7 @@ export default async function Blog({
 
   const avatars =
     post.metadata.team?.map((person) => ({
-      src: getImagePath(person.avatar),
+      src: person.avatar,
     })) || [];
 
   return (

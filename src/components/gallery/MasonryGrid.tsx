@@ -4,7 +4,6 @@ import Masonry from "react-masonry-css";
 import { Media } from "@once-ui-system/core";
 import styles from "./Gallery.module.scss";
 import { gallery } from "@/resources";
-import { getImagePath } from "@/utils/imageUtils";
 
 export default function MasonryGrid() {
   const breakpointColumnsObj = {
@@ -25,7 +24,7 @@ export default function MasonryGrid() {
           key={index}
           radius="m"
           aspectRatio={image.orientation === "horizontal" ? "16 / 9" : "3 / 4"}
-          src={getImagePath(image.src)}
+          src={image.src}
           alt={image.alt}
           className={styles.gridItem}
         />

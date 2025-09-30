@@ -1,5 +1,18 @@
 import { Logo } from "@once-ui-system/core";
 
+// Helper function for asset paths in production
+const assetPath = (path) => {
+  const basePath = process.env.NODE_ENV === 'production' ? '/fawzi_portfolio' : '';
+  
+  // If the path already contains the basePath, return it as is
+  if (path.startsWith('/fawzi_portfolio/')) {
+    return path;
+  }
+  
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${basePath}/${cleanPath}`;
+};
+
 const person = {
   firstName: "Fawzi",
   lastName: "HMEM",
@@ -7,7 +20,7 @@ const person = {
     return `${this.firstName} ${this.lastName}`;
   },
   role: "Technicien Audiovisuel",
-  avatar: "/images/avatar.jpg",
+  avatar: assetPath("/images/avatar.jpg"),
   email: "Faouizi574hm@gmail.com",
   location: "Tunisien", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["Français", "Anglais", "Arabe"], // optional: Leave the array empty if you don't want to display languages
@@ -45,7 +58,7 @@ const social = [
   {
     name: "CV",
     icon: "download",
-    link: "/cv/Fawzi Hmem.pdf",
+    link: assetPath("/cv/Fawzi Hmem.pdf"),
   },
 ];
 

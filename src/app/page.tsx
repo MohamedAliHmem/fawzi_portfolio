@@ -4,7 +4,7 @@ import Image from "next/image";
 import { home, about, person, newsletter, baseURL, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
-import { getImagePath } from "@/utils/imageUtils";
+import { assetPath } from "@/utils/assetPath";
 
 export default function Home() {
   return (
@@ -57,7 +57,7 @@ export default function Home() {
                   <Avatar
                     marginRight="8"
                     style={{ marginLeft: "-0.75rem" }}
-                    src={getImagePath(person.avatar)}
+                    src={person.avatar}
                     size="m"
                   />
                 )}
@@ -69,7 +69,7 @@ export default function Home() {
         <RevealFx fillWidth horizontal="end" delay={0.3}>
           <Image
             priority
-            src={getImagePath("/images/astro.jpg")}
+            src={assetPath("/images/astro.jpg")}
             alt="Illustration astronaute"
             width={400}
             height={400}

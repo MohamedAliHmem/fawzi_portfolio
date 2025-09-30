@@ -14,7 +14,6 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
-import { getImagePath } from "@/utils/imageUtils";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 
@@ -90,7 +89,7 @@ export default function About() {
             flex={3}
             horizontal="center"
           >
-            <Avatar src={getImagePath(person.avatar)} size="xl" />
+            <Avatar src={person.avatar} size="xl" />
             <Flex gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
               {person.location}
@@ -236,7 +235,7 @@ export default function About() {
                               //@ts-ignore
                               alt={image.alt}
                               //@ts-ignore
-                              src={getImagePath(image.src)}
+                              src={image.src}
                             />
                           </Flex>
                         ))}
@@ -305,7 +304,7 @@ export default function About() {
                               //@ts-ignore
                               alt={image.alt}
                               //@ts-ignore
-                              src={getImagePath(image.src)}
+                              src={image.src}
                             />
                           </Flex>
                         ))}

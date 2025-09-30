@@ -1,5 +1,4 @@
 import { getPosts } from "@/utils/utils";
-import { getImagePath } from "@/utils/imageUtils";
 import { Column } from "@once-ui-system/core";
 import { ProjectCard } from "@/components";
 
@@ -29,7 +28,7 @@ export function Projects({ range }: ProjectsProps) {
           title={post.metadata.title}
           description={post.metadata.summary}
           content={post.content}
-          avatars={post.metadata.team?.map((member) => ({ src: getImagePath(member.avatar) })) || []}
+          avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
           link={post.metadata.link || ""}
         />
       ))}
