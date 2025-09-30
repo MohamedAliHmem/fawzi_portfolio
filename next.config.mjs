@@ -11,6 +11,9 @@ const nextConfig = {
   trailingSlash: true,
   basePath: '/fawzi_portfolio',
   assetPrefix: '/fawzi_portfolio/',
+  images: {
+    unoptimized: true,
+  },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.

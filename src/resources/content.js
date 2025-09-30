@@ -64,7 +64,7 @@ const social = [
 
 const home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: assetPath("/images/og/home.jpg"),
   label: "Accueil",
   title: `Portfolio de ${person.name}`,
   description: `Portfolio professionnel présentant mon travail en tant que ${person.role}`,
@@ -131,7 +131,7 @@ const about = {
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
+            src: assetPath("/images/projects/project-01/cover-01.jpg"),
             alt: "Production Audiovisuelle",
             width: 16,
             height: 9,
@@ -180,13 +180,13 @@ const about = {
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
+            src: assetPath("/images/projects/project-01/cover-02.jpg"),
             alt: "Production audiovisuelle",
             width: 16,
             height: 9,
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
+            src: assetPath("/images/projects/project-01/cover-03.jpg"),
             alt: "Équipement audiovisuel",
             width: 16,
             height: 9,
@@ -199,7 +199,7 @@ const about = {
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
+            src: assetPath("/images/projects/project-01/cover-04.jpg"),
             alt: "Post-production",
             width: 16,
             height: 9,
@@ -242,42 +242,42 @@ const gallery = {
   // These are placeholder images, replace with your own
   images: [
     {
-      src: "/images/gallery/horizontal-1.jpg",
+      src: assetPath("/images/gallery/horizontal-1.jpg"),
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/horizontal-2.jpg",
+      src: assetPath("/images/gallery/horizontal-2.jpg"),
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/horizontal-3.jpg",
+      src: assetPath("/images/gallery/horizontal-3.jpg"),
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/horizontal-4.jpg",
+      src: assetPath("/images/gallery/horizontal-4.jpg"),
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-1.jpg",
+      src: assetPath("/images/gallery/vertical-1.jpg"),
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/vertical-2.jpg",
+      src: assetPath("/images/gallery/vertical-2.jpg"),
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/vertical-3.jpg",
+      src: assetPath("/images/gallery/vertical-3.jpg"),
       alt: "image",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/vertical-4.jpg",
+      src: assetPath("/images/gallery/vertical-4.jpg"),
       alt: "image",
       orientation: "vertical",
     },
